@@ -119,7 +119,7 @@ const ChatInterface = () => {
     const navigate = useNavigate();
 
     const handleSaveConversation = () => {
-        // setShowEndFeedback(true);
+        setShowEndFeedback(true);
         // navigate to history directly for now
         navigate('/history');
     };
