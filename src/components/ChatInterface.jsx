@@ -119,7 +119,9 @@ const ChatInterface = () => {
     const navigate = useNavigate();
 
     const handleSaveConversation = () => {
-        setShowEndFeedback(true);
+        // setShowEndFeedback(true);
+        // navigate to history directly for now
+        navigate('/history');
     };
 
     const handleNewChat = () => {
@@ -137,7 +139,7 @@ const ChatInterface = () => {
 
     const handleEndFeedback = (rating, comment) => {
         setShowEndFeedback(false);
-         navigate('/history');
+        navigate('/history');
     };
 
     return (
@@ -146,7 +148,7 @@ const ChatInterface = () => {
                 <h1>Bot AI</h1>
                 <a href="/" onClick={handleNewChat} data-testid="new-chat">New Chat</a>
             </header>
-            
+
             <div className="chat-container">
                 <div className="messages-container">
                     <div style={{ textAlign: "center", marginTop: "100px" }}>
@@ -238,7 +240,7 @@ const ChatInterface = () => {
                             >
                                 Ask
                             </button>
-                        
+
                             <button
                                 type="button"
                                 onClick={handleSaveConversation}
@@ -246,7 +248,7 @@ const ChatInterface = () => {
                             >
                                 Save
                             </button>
-                            
+
                         </div>
                     </form>
                 </div>
