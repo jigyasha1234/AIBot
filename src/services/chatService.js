@@ -12,6 +12,8 @@ const defaultResponse = "Sorry, Did not understand your query!";
  * Matches user input to a question in sampleData.json
  */
 export const getChatResponse = (message) => {
+  console.log(import.meta.url);
+
   return new Promise((resolve) => {
     setTimeout(() => {
       const normalized = message.toLowerCase().trim();

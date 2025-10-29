@@ -4,8 +4,8 @@ import MessageFeedback from './MessageFeedback';
 import ConversationFeedback from './ConversationFeedback';
 import './ChatInterface.css';
 import chatIcon from '../assets/chatIcon.svg';
-import Sidebar from "./Sidebar";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const ChatInterface = () => {
     const [messages, setMessages] = useState([]);
@@ -119,10 +119,11 @@ const ChatInterface = () => {
     const handleSaveConversation = () => {
         setShowEndFeedback(true);
     };
+    const navigate = useNavigate();
 
     const handleEndFeedback = (rating, comment) => {
         setShowEndFeedback(false);
-        navigate('/history');
+         navigate('/history');
     };
 
     return (
