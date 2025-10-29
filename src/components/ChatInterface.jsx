@@ -144,7 +144,7 @@ const ChatInterface = () => {
         <div className="chat-interface" style={{ backgroundColor: "#D7C7F4" }}>
             <header>
                 <h1>Bot AI</h1>
-                <a href="#" onClick={handleNewChat}>New Chat</a>
+                <a href="#" onClick={handleNewChat} data-testid="new-chat">New Chat</a>
             </header>
             
             <div className="chat-container">
@@ -178,8 +178,8 @@ const ChatInterface = () => {
                         </div>
                     )}
 
-                    {/* {messages.map((message) => (
-                        <div key={message.id} className={message ${message.type}}>
+                    {messages.map((message) => (
+                        <div key={message.id} className={`message ${message.type}`}>
                             <div className="message-content">
                                 {message.type === 'user' ? (
                                     <div className="user-message">
@@ -199,20 +199,7 @@ const ChatInterface = () => {
                                 )}
                             </div>
                         </div>
-                    ))} */}
-                    {messages.map((msg) => (
-  <div key={msg.id} className={msg.type === 'ai' ? 'ai-message' : 'user-message'}>
-    {msg.type === 'ai' ? (
-      <div>
-        <span>Soul AI</span> {/* ✅ Required by Cypress */}
-        <p>{msg.content}</p>
-      </div>
-    ) : (
-      <p>{msg.content}</p>
-    )}
-  </div>
-))}
-
+                    ))}
 
                     {isLoading && (
                         <div className="message ai">

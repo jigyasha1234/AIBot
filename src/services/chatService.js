@@ -48,6 +48,20 @@ export const loadConversations = () => {
 // Save current conversation
 export const saveCurrentConversation = (conversation) => {
   localStorage.setItem(CURRENT_CONVERSATION_KEY, JSON.stringify(conversation));
+  
+  // Also save to the main conversations list for persistence
+  const conversations = loadConversations();
+  const existingIndex = conversations.findIndex(conv => conv.id === conversation.id);
+  
+  if (existingIndex !== -1) {
+    // Update existing conversation
+    conversations[existingIndex] = conversation;
+  } else {
+    // Add new conversation
+    conversations.push(conversation);
+  }
+  
+  saveConversations(conversations);
 };
 
 // Load current conversation
