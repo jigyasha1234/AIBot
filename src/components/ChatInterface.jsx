@@ -142,10 +142,6 @@ const ChatInterface = () => {
 
     return (
         <div className="chat-interface" style={{ backgroundColor: "#D7C7F4" }}>
-            <header>
-                <h1>Bot AI</h1>
-                <a href="#" onClick={handleNewChat} data-testid="new-chat">New Chat</a>
-            </header>
             
             <div className="chat-container">
                 <div className="messages-container">

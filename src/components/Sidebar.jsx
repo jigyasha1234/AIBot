@@ -19,7 +19,7 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
 
       <div className="sidebar-header">
         <img src={chatIcon} alt="Bot AI Logo" className="logo" />
-        <span>New Chat</span>
+        <a href="/" onClick={handleNewChat}>New Chat</a>
         <Link to="/" onClick={handleNewChat}>
           <FaEdit className="edit-icon" />
         </Link>
