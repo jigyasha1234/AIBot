@@ -1,4 +1,4 @@
-import sampleData from '../aidata/sampleData.json';
+import sampleData from '../aiData/sampleData.json';
 
 // Local storage keys
 const CONVERSATIONS_KEY = 'chat_conversations';
