@@ -63,7 +63,7 @@ const ChatInterface = () => {
         setIsLoading(true);
 
         try {
-            const response = await getChatResponse(userMessage.content);
+            const response = await getChatResponse(userMessage.content) ?? "Sorry, Did not understand your query!";
 
             const aiMessage = {
                 id: generateId(),
