@@ -121,9 +121,7 @@ const ChatInterface = () => {
     };
 
     const handleEndFeedback = (rating, comment) => {
-        // This will be handled by ConversationFeedback component
         setShowEndFeedback(false);
-        // navigate to "/history" page
         navigate('/history');
     };
 
