@@ -116,10 +116,24 @@ const ChatInterface = () => {
         }
     };
 
+    const navigate = useNavigate();
+
     const handleSaveConversation = () => {
         setShowEndFeedback(true);
     };
-    const navigate = useNavigate();
+
+    const handleNewChat = () => {
+        // Clear current conversation
+        setMessages([]);
+        const newConversationId = generateId();
+        setConversationId(newConversationId);
+        const newConversation = {
+            id: newConversationId,
+            messages: [],
+            createdAt: new Date().toISOString()
+        };
+        saveCurrentConversation(newConversation);
+    };
 
     const handleEndFeedback = (rating, comment) => {
         setShowEndFeedback(false);
@@ -128,6 +142,11 @@ const ChatInterface = () => {
 
     return (
         <div className="chat-interface" style={{ backgroundColor: "#D7C7F4" }}>
+            <header>
+                <h1>Bot AI</h1>
+                <a href="#" onClick={handleNewChat}>New Chat</a>
+            </header>
+            
             <div className="chat-container">
                 <div className="messages-container">
                     <div style={{ textAlign: "center", marginTop: "100px" }}>
@@ -160,7 +179,7 @@ const ChatInterface = () => {
                     )}
 
                     {/* {messages.map((message) => (
-                        <div key={message.id} className={`message ${message.type}`}>
+                        <div key={message.id} className={message ${message.type}}>
                             <div className="message-content">
                                 {message.type === 'user' ? (
                                     <div className="user-message">
@@ -224,7 +243,7 @@ const ChatInterface = () => {
                                 onChange={(e) => setInputValue(e.target.value)}
                                 disabled={isLoading}
                                 className="chat-input"
-                                placeholder="Message Bot AI…"
+                                placeholder="Message Bot AI..."
                             />
                             <button
                                 type="submit"
