@@ -23,13 +23,8 @@ export const getChatResponse = (message) => {
         item.question.toLowerCase().trim() === normalized
       );
 
-      // If not exact, try partial match (useful for natural queries)
-      const partial = sampleData.find((item) => 
-        normalized.includes(item.question.toLowerCase().split(" ")[0])
-      );
-
       // Return matched response or default
-      resolve(found?.response || partial?.response || defaultResponse);
+      resolve(found?.response || defaultResponse);
     }, 400); // Simulated delay
   });
 };
