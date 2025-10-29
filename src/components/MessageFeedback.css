@@ -1,0 +1,67 @@
+/* MessageFeedback.css */
+.message-feedback {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(5px);
+}
+
+.feedback-buttons.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.feedback-btn {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.feedback-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.feedback-btn.active {
+  background: #007AFF;
+  color: white;
+}
+
+.feedback-btn.thumbs-up.active {
+  background: #28a745;
+}
+
+.feedback-btn.thumbs-down.active {
+  background: #dc3545;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .feedback-buttons {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .feedback-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
